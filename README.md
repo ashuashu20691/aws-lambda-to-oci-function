@@ -45,8 +45,11 @@ This project provides a web interface for converting AWS Lambda functions (writt
     ```
 3. Initialize the function:
     ```bash
-    fn init --runtime node oci-function
+    fn init --runtime <runtime-language> <function-name>
     ```
+    - Replace `<runtime-language>` with the Supported languages include node, java, python, etc.
+    - Replace `<function-name>` with the Name for the function. Defaults to the current directory name if omitted.
+
 4. Deploy the function to OCI Functions:
     ```bash
     fn -v deploy --app <app-name>
@@ -61,8 +64,6 @@ This project provides a web interface for converting AWS Lambda functions (writt
 - `templates/index.html`: Contains the web interface for the converter.
 - `app.py`: Main Flask application file.
 - `static/`: Directory for CSS or JS assets (if any).
-
----
 
 ---
 
