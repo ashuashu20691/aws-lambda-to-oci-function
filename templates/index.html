@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Lambda to OCI Function Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center the form container */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            height: 250px;
+            padding: 15px;
+            font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            resize: vertical;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .error {
+            color: #f44336;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ol {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        pre {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>AWS Lambda to OCI Function Converter</h2>
+
+        <!-- Display error message if any -->
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <!-- Form for Lambda code -->
+        <form method="POST">
+            <label for="aws_lambda_code">Paste your AWS Lambda code (Node.js):</label>
+            <textarea name="aws_lambda_code" id="aws_lambda_code" placeholder="Paste your Lambda function here..."></textarea>
+            
+            <button type="submit">Convert to OCI Function</button>
+        </form>
+        <h2>Steps for Deployment Using Fn Project CLI</h2>
+        <ol>
+            <li>Open a terminal and navigate to the directory containing the downloaded ZIP file.</li>
+            <li>Extract the ZIP file contents.</li>
+            <li>Run the following command to initialize the function:
+                <pre>fn init --runtime node oci-function</pre>
+            </li>
+            <li>Deploy the function to OCI Functions:
+                <pre>fn -v deploy --app myapp</pre>
+            </li>
+            <li>Validate and test the function deployment via the OCI Console or CLI.</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 AWS to OCI Converter | Made with ❤️</p>
+    </div>
+
+</body>
+</html>
+
